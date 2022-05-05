@@ -25,6 +25,7 @@ ThirdAssessBoxplot <- boxplot(bloodp ~ finaldecision, PatientData,
                               ylab = "Blood Pressure"
                               
 )
+
 PatientHistogram <- hist(PatientData$bloodp, 
                          main = "Patient Blood Pressure",
                          xlab = "Blood Pressure",
