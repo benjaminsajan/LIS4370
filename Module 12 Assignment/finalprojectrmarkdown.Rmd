@@ -1,0 +1,79 @@
+---
+title: "Creating Functions for Final Project"
+author: "Benjamin Sajan"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+AstroPhysicalMeasuring is a package that is designed for one specific academic paper and research team. It is a collection of three highly utilized functions from the academic article. Package runs functions based on formulas developed and utilized by Sloan, Batista, and Loeb (2017) to calculate celestial object sizes and requirements, related to their research regarding the resilience of life to Astrophysical Events.
+
+Source: 
+Sloan, D., Alves Batista, R. & Loeb, A. The Resilience of Life to Astrophysical Events. Sci Rep 7, 5419 (2017). https://doi.org/10.1038/s41598-017-05796-x
+
+```{r setup, include=FALSE}
+install.packages("roxygen2")
+library(roxygen2)
+```
+
+## Creating First Function
+
+This function is called asteroidMassToAnnihilate, which calculates and returns MA, the mass of an asteroid, that will annihilate all traces of life on a planet. 
+
+Input parameters:
+a Fraction of mass of planet in ocean
+C Specific Heat capacity of Water
+T Increment to raise temperature by (Celsius)
+EscapeVelocity of Planet
+Opik Close Encounter Theory
+planetMass Mass of Planet
+
+```{r}
+asteroidMassToAnnihilate <- function(a, C, T, EscapeVelocity, Opik, planetMass)
+{
+  MA <- ((2*(a)*(C)*(T))/((EscapeVelocity^2) + Opik^2)) * planetMass
+  return(MA)
+}
+```
+
+## Creating Second Function
+
+This next function is called planetaryStarDisruption, which calculates and returns the rate, R, of encounters with passing-by stars that will disrupt the planetary system.
+
+Input parameters:
+
+n Stellar Density
+m Cross Section to disrupt the Orbit of the planet
+v Velocity of Star
+
+```{r}
+planetaryStarDisruption <- function(n, m, v){
+
+  R <- (n*m*v)
+  return(R)
+
+}
+
+```
+
+# # Creating Third Function
+
+The last function is called approximateOceanDepth, which calculcates and returns the approximate depth of the ocean, on a planet where ocean mass is small
+
+Input Parameters:
+
+a Fraction of the mass in ocean
+p Average Planet Density
+Mp Mass of Planet
+Pw Density of Water
+
+```{r}
+approximateOceanDepth <- function(a, p, Mp, Pw)
+{
+
+  D = (a * p ^(2/3) * Mp^(1/3))/((36 * pi)^(1/3))*(Pw)
+
+}
+
+```
+
+
